@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced Booking Form</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="booking-form">
+    <h2>Book Your Reservation</h2>
+    <form id="bookingForm">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required />
+
+      <label for="bookingType">Booking Type:</label>
+      <select id="bookingType" name="bookingType" required>
+        <option value="">--Select--</option>
+        <option value="dining">Dining</option>
+        <option value="event">Event</option>
+        <option value="meeting">Meeting</option>
+      </select>
+
+      <div id="eventDetails" style="display: none;">
+        <label for="eventName">Event Name:</label>
+        <input type="text" id="eventName" name="eventName" />
+
+        <label for="attendees">Number of Attendees:</label>
+        <input type="number" id="attendees" name="attendees" min="1" />
+      </div>
+
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date" required />
+
+      <label for="time">Time:</label>
+      <input type="time" id="time" name="time" required />
+
+      <label for="guests">Number of Guests:</label>
+      <input type="number" id="guests" name="guests" min="1" required />
+
+      <label for="requests">Special Requests:</label>
+      <textarea id="requests" name="requests" rows="3"></textarea>
+
+      <button type="submit">Submit Booking</button>
+    </form>
+  </div>
+  <script>
+  const bookingType = document.getElementById("bookingType");
+  const eventDetails = document.getElementById("eventDetails");
+
+  bookingType.addEventListener("change", () => {
+    if (bookingType.value === "event") {
+      eventDetails.style.display = "block";
+    } else {
+      eventDetails.style.display = "none";
+    }
+  });
+</script>
+
+</body>
+</html>
